@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
-# Create your views here.
 def login(request):
     if request.user.is_authenticated:
         return redirect('/')
@@ -39,6 +38,12 @@ def register(request):
             messages.info(request, 'Passwords do not match')
         elif User.objects.filter(username= username).exists():
             messages.info(request, "Username already exists")
+        elif len(password1) < 6 :
+            messages.info(request, "Password's length must be more than 6")
+        elif username == "":
+            messages.info(request, "username required")
+        elif email == "":
+            messages.info(request, "email required")
         else:
             user = User.objects.create_user(
                 username= username,

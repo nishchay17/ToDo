@@ -20,8 +20,8 @@ from main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account.urls')),
-    path('', views.show, name='show' ),
-    path('complete/<todoId>', views.todoComplete, name= 'complete'),
-    path('delete', views.delete, name= 'delete'),
-    path('deleteAll', views.deleteAll, name= 'deleteAll'),
-]
+    path('', include('main.urls')),
+] 
+
+handler404 = "main.views.handler404"
+handler500 = "main.views.handler500"
