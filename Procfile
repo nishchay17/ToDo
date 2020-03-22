@@ -1,1 +1,1 @@
-web: gunicorn todogreen.wsgi
+web: gunicorn todo_list.wsgi
