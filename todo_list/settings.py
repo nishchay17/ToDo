@@ -127,5 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_URL = os.path.join(BASE_DIR, "staticfiles")
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
